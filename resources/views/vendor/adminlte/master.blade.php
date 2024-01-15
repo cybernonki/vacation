@@ -5,6 +5,7 @@
 
     {{-- Base Meta Tags --}}
     <meta charset="utf-8">
+    <link rel="manifest" href="/manifest.json">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -72,7 +73,11 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
-    @vite(['resources/js/common.js', 'resources/js/modules/utilization.js'])
+    @vite(['resources/js/app.js', 'resources/js/common.js', 'resources/js/modules/utilization.js'])
+    <!-- 削除確認メッセージ -->
+    <script>
+        const confirm_message = @json(config('const.DELETE_CHECK_MESSAGES.CONFIRM'));
+    </script>
 
 </head>
 

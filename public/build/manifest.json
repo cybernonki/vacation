@@ -1,6 +1,11 @@
 {
+  "resources/js/app.js": {
+    "file": "assets/app-xUFgmIB1.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
   "resources/js/common.js": {
-    "file": "assets/common-LVAaHZy3.js",
+    "file": "assets/common-sVUQx4jb.js",
     "imports": [
       "resources/js/modules/utilization.js"
     ],
