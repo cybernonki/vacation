@@ -33,10 +33,6 @@ Route::get('/', function () {
     return redirect(\route('login'));
 });
 
-Route::get('/home', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 // 休暇一覧管理
 Route::controller(EmployeeController::class)->middleware(['auth'])->name('employee.')->group(function () {
     Route::get('/employee/list/{reload?}', 'list')->name('list');
