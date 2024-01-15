@@ -11,9 +11,11 @@
         "kitloong/laravel-migrations-generator": "^6.11",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "laravelcollective/html": "^6.4"
     },
     "require-dev": {
+        "askdkc/breezejp": "^1.7",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.28",
         "laravel/pint": "^1.0",
