@@ -1,12 +1,15 @@
 {
-  "resources/css/app.css": {
-    "file": "assets/app-WrXNzX9u.css",
+  "resources/js/common.js": {
+    "file": "assets/common-LVAaHZy3.js",
+    "imports": [
+      "resources/js/modules/utilization.js"
+    ],
     "isEntry": true,
-    "src": "resources/css/app.css"
+    "src": "resources/js/common.js"
   },
-  "resources/js/app.js": {
-    "file": "assets/app-vZDQhnJA.js",
+  "resources/js/modules/utilization.js": {
+    "file": "assets/utilization-TG7dpmm6.js",
     "isEntry": true,
-    "src": "resources/js/app.js"
+    "src": "resources/js/modules/utilization.js"
   }
 }

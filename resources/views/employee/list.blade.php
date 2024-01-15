@@ -8,6 +8,8 @@
 
 @section('content')
 {{ flashMessage() }}
+    {{ Form::open(['method' => 'get', 'url' => route('employee.list'), 'id' => 'search_form']) }}
+    {{ Form::close() }}
     <div class="card card-primary card-outline">
         <div class="card-header">
             <div class="row">
@@ -53,7 +55,9 @@
                         <td>{{ $employee->usecount }}</td>
                         <td>{{ $employee->memo }}</td>
                         <td class="text-center">
-                            <a href="{{ route('employee.delete', ['id' => $employee->id]) }}" class="{{ config('adminlte.classes_auth_btn_danger') }}"><i class="fas fa-plus"></i> 削除</a>
+                            {!! Form::open(['method' => 'DELETE', 'url' => route('employee.delete', [$employee->id]), 'class' => 'del_form']) !!}
+                            {{Form::button('<i class="fas fa-trash"></i> 削除', ['class'=>'btn btn-danger w_110 delete_confirm','type'=>'submit'])}}
+                            {!! Form::close() !!}
                         </td>
                     </tr>
                 @empty
