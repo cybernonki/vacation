@@ -1,4 +1,8 @@
 {
+  "resources/images/favicon.ico": {
+    "file": "assets/favicon-nYKoikVs.ico",
+    "src": "resources/images/favicon.ico"
+  },
   "resources/js/app.js": {
     "file": "assets/app-xUFgmIB1.js",
     "isEntry": true,

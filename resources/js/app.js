@@ -6,6 +6,10 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
+import.meta.glob([
+    '../images/**',
+]);
+
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         navigator.serviceWorker.register('/sw.js').then(function(registration) {
