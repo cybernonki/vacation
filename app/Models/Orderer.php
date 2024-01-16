@@ -53,7 +53,7 @@ class Orderer extends Model
             $scope = 'Order' . Str::studly($order['sort_column']);
             $query->$scope($order['sort_order']);
         } else {
-            $query->OrderId('asc');
+            $query->OrderSort('asc');
         }
     }
 
@@ -63,6 +63,10 @@ class Orderer extends Model
 
     public function scopeOrderName($query, $value) {
         return $query->orderBy('name', $value);
+    }
+
+    public function scopeOrderSort($query, $value) {
+        return $query->orderBy('sort', $value);
     }
 
     // 登録

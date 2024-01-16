@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', '【時間管理システム】特別休暇一覧')
+@section('title', '【時間管理システム】発注元一覧')
 
 @section('content_header')
-    <h1>特別休暇一覧</h1>
+    <h1>発注元一覧</h1>
 @stop
 
 @section('content')
 {{ flashMessage() }}
-    {{ Form::open(['method' => 'get', 'url' => route('employee.list'), 'id' => 'search_form']) }}
+    {{ Form::open(['method' => 'get', 'url' => route('orderer.list'), 'id' => 'search_form']) }}
     {{ Form::close() }}
     <div class="card card-primary card-outline">
         <div class="card-header">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-sm-11">
                     <div class="text-right">
-                        <a href="{{ route('employee.create') }}" class="{{ config('adminlte.classes_auth_btn') }}"><i class="fas fa-plus"></i> 新規登録</a>
+                        <a href="{{ route('orderer.create') }}" class="{{ config('adminlte.classes_auth_btn') }}"><i class="fas fa-plus"></i> 新規登録</a>
                     </div>
                 </div>
             </div>
@@ -35,8 +35,6 @@
                         $param,
                         [
                             'name' => ['name' => '名前'],
-                            'usecount' => ['name' => '残り'],
-                            'name' => ['name' => 'メモ'],
                             'delete' => ['name' => '', 'not_sort' => 'true'],
                         ]
                     );
@@ -45,17 +43,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                @forelse($lists as $employee)
+                @forelse($lists as $orderer)
                     <tr>
                         <td>
-                            <a href="{{ route('employee.edit', ['employee' => $employee->id]) }}">
-                                {{ $employee->name }}
+                            <a href="{{ route('orderer.edit', ['orderer' => $orderer->id]) }}">
+                                {{ $orderer->name }}
                             </a>
                         </td>
-                        <td>{{ $employee->usecount }}</td>
-                        <td>{{ $employee->memo }}</td>
                         <td class="text-center">
-                            {!! Form::open(['method' => 'DELETE', 'url' => route('employee.delete', [$employee->id]), 'class' => 'del_form']) !!}
+                            {!! Form::open(['method' => 'DELETE', 'url' => route('orderer.delete', [$orderer->id]), 'class' => 'del_form']) !!}
                             {{Form::button('<i class="fas fa-trash"></i> 削除', ['class'=>'btn btn-danger w_110 delete_confirm','type'=>'submit'])}}
                             {!! Form::close() !!}
                         </td>

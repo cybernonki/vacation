@@ -12,9 +12,8 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'orderer_id' => ['required'],
             'name' => ['required','max:200'],
-            'usecount' => ['required','numeric'],
-            'memo' => ['nullable','max:200'],
             'sort' => ['required','numeric'],
         ];
     }
@@ -22,9 +21,8 @@ class UpdateProjectRequest extends FormRequest
     public function attributes($params = [])
     {
         return [
+            'orderer_id' => '発注元',
             'name' => '名前',
-            'usecount' => '休暇カウント',
-            'memo' => 'メモ',
             'sort' => 'ソート',
         ];
     }

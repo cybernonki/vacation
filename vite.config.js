@@ -8,6 +8,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/common.js',
                 'resources/js/modules/utilization.js',
+                'resources/js/datepicker.js',
             ],
             refresh: true,
         }),

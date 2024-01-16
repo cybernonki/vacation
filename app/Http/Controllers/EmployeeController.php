@@ -17,7 +17,7 @@ use Config;
 class EmployeeController extends Controller
 {
     /**
-     * 社員一覧画面を表示する
+     * 一覧画面を表示する
      *
      * @return Application|Factory|View
      */
@@ -50,7 +50,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * 新規顧客マスタ登録画面を表示する
+     * 登録画面を表示する
      *
      * @return Application|Factory|View
      */
@@ -60,7 +60,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * 新規顧客マスタの登録をする
+     * 登録をする
      */
     public function store(AddEmployeeRequest $request)
     {
@@ -72,7 +72,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * 顧客マスタ編集詳細画面を表示する
+     * 編集画面を表示する
      *
      * @param  Request  $request
      * @param  Employee  $Employee
@@ -84,7 +84,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * 顧客マスタ情報を更新する
+     * 更新する
      *
      * @param  UpdateEmployeeRequest  $request
      * @param  Employee  $Employee
@@ -103,7 +103,7 @@ class EmployeeController extends Controller
     }
 
     /**
-     * 顧客マスタ情報を削除する
+     * 削除する
      *
      * @param  DeleteEmployeeRequest  $request
      * @return RedirectResponse

@@ -74,7 +74,7 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
-    @vite(['resources/js/app.js', 'resources/js/common.js', 'resources/js/modules/utilization.js'])
+    @vite(['resources/js/app.js', 'resources/js/common.js', 'resources/js/modules/utilization.js', 'resources/js/datepicker.js'])
     <!-- 削除確認メッセージ -->
     <script>
         const confirm_message = @json(config('const.DELETE_CHECK_MESSAGES.CONFIRM'));
@@ -99,6 +99,10 @@
 
     {{-- Extra Configured Plugins Scripts --}}
     @include('adminlte::plugins', ['type' => 'js'])
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js" integrity="sha256-bqVeqGdJ7h/lYPq6xrPv/YGzMEb6dNxlfiTUHSgRCp8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/locales/bootstrap-datepicker.ja.min.js" integrity="sha256-IX182a23hiQE65+kYOND1ZIX2Vpl0cHb96g9nJqqqW0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.css" integrity="sha256-AghQEDQh6JXTN1iI/BatwbIHpJRKQcg2lay7DE5U/RQ=" crossorigin="anonymous">
 
     {{-- Livewire Script --}}
     @if(config('adminlte.livewire'))

@@ -27,9 +27,14 @@ class Project extends Model
         'sort',
     ];
 
+    public function Orderer()
+    {
+        return $this->hasOne(Orderer::class, 'id', 'orderer_id');
+    }
+
     public static function getList()
     {
-        return self::with([]);
+        return self::with(['Orderer']);
     }
 
     public function scopeSearch($query, $search) {
@@ -54,12 +59,16 @@ class Project extends Model
             $scope = 'Order' . Str::studly($order['sort_column']);
             $query->$scope($order['sort_order']);
         } else {
-            $query->OrderId('asc');
+            $query->OrderSort('asc');
         }
     }
 
     public function scopeOrderId($query, $value) {
         return $query->orderBy('id', $value);
+    }
+
+    public function scopeOrderOrdererId($query, $value) {
+        return $query->orderBy('orderer_id', $value);
     }
 
     public function scopeOrderName($query, $value) {

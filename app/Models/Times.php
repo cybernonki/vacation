@@ -28,9 +28,23 @@ class Times extends Model
         'project_id',
     ];
 
+    protected $casts = [
+        'work_date' => 'date',
+    ];
+
+    public function Employee()
+    {
+        return $this->hasOne(Employee::class, 'id', 'employee_id');
+    }
+
+    public function Project()
+    {
+        return $this->hasOne(Project::class, 'id', 'project_id');
+    }
+
     public static function getList()
     {
-        return self::with([]);
+        return self::with(['Employee','Project']);
     }
 
     public function scopeSearch($query, $search) {
@@ -55,12 +69,34 @@ class Times extends Model
             $scope = 'Order' . Str::studly($order['sort_column']);
             $query->$scope($order['sort_order']);
         } else {
-            $query->OrderId('asc');
+            $query->OrderWorkDate('desc');
+            $query->OrderEmployeeId('asc');
+            $query->OrderProjectId('asc');
         }
     }
 
     public function scopeOrderId($query, $value) {
         return $query->orderBy('id', $value);
+    }
+
+    public function scopeOrderEmployeeId($query, $value) {
+        return $query->join('vacation_employee', 'vacation_employee.id', '=', 'times_times.employee_id')
+                    ->orderBy('vacation_employee.sort', $value)
+                    ->select('times_times.*');
+    }
+
+    public function scopeOrderProjectId($query, $value) {
+        return $query->join('project_project', 'project_project.id', '=', 'times_times.project_id')
+                    ->orderBy('project_project.sort', $value)
+                    ->select('times_times.*');
+    }
+
+    public function scopeOrderWorkDate($query, $value) {
+        return $query->orderBy('work_date', $value);
+    }
+
+    public function scopeOrderWorkTime($query, $value) {
+        return $query->orderBy('work_time', $value);
     }
 
     // 登録

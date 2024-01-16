@@ -55,7 +55,7 @@ class Employee extends Model
             $scope = 'Order' . Str::studly($order['sort_column']);
             $query->$scope($order['sort_order']);
         } else {
-            $query->OrderId('asc');
+            $query->OrderSort('asc');
         }
     }
 
@@ -69,6 +69,9 @@ class Employee extends Model
 
     public function scopeOrderUsecount($query, $value) {
         return $query->orderBy('usecount', $value);
+    }
+    public function scopeOrderSort($query, $value) {
+        return $query->orderBy('sort', $value);
     }
 
     // 登録

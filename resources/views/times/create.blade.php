@@ -2,42 +2,42 @@
 
 @extends('adminlte::page')
 
-@section('title', '【時間管理システム】特別休暇新規登録')
+@section('title', '【時間管理システム】作業時間新規登録')
 
 @section('content_header')
-    <h1>特別休暇新規登録</h1>
+    <h1>作業時間新規登録</h1>
 @stop
 
 @section('content')
     {{ errors() }}
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['method' => 'post', 'url' => route('employee.store')]) !!}
+            {!! Form::open(['method' => 'post', 'url' => route('times.store')]) !!}
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>名前</label>
-                            {{Form::text('name', old('name', isset($employee) ? $employee->name : null), ['class' => errClass('name').' form-control', 'autocomplete' => 'off', 'id' => 'name'])}}
+                            <label>案件</label>
+                            {!! projectSelect('project_id', old('project_id', isset($times) ? $times->project_id : null), ['class' => 'form-control p-region-id ' . errClass('project_id')]) !!}
                         </div>
                         <div class="form-group">
-                            <label>休暇カウント</label>
-                            {{Form::number('usecount', old('usecount', isset($employee) ? $employee->usecount : null), ['class' => errClass('usecount').' form-control', 'placeholder' => '5', 'autocomplete' => 'off', 'size' => '4', 'maxlength' => '4'])}}
+                            <label>社員</label>
+                            {!! employeeSelect('employee_id', old('employee_id', isset($times) ? $times->employee_id : null), ['class' => 'form-control p-region-id ' . errClass('employee_id')]) !!}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>メモ</label>
-                            {{Form::text('memo', old('memo', isset($employee) ? $employee->memo : null), ['class' => errClass('memo').' form-control', 'autocomplete' => 'off', 'id' => 'memo'])}}
+                            <label>作業日付</label>
+                            {{Form::text('work_date', old('work_date', isset($times) ? $times->work_date->format('Y/m/d') : null), ['class' => errClass('work_date').' form-control date', 'autocomplete' => 'off', 'id' => 'work_date'])}}
                         </div>
                         <div class="form-group">
-                            <label>ソート</label>
-                            {{Form::number('sort', old('sort', isset($employee) ? $employee->sort : null), ['class' => errClass('sort').' form-control', 'autocomplete' => 'off', 'size' => '4', 'maxlength' => '4'])}}
+                            <label>作業時間</label>
+                            {{Form::number('work_time', old('work_time', isset($times) ? $times->work_time : null), ['class' => errClass('work_time').' form-control', 'autocomplete' => 'off', 'size' => '4', 'maxlength' => '4'])}}
                         </div>
                     </div>
                 </div>
                 <div class="text-center">
-                    <a class="btn btn-default mr-3" href="{{ route('employee.list', ['reload' => config('const.RELOAD_ON')]) }}">
+                    <a class="btn btn-default mr-3" href="{{ route('times.list', ['reload' => config('const.RELOAD_ON')]) }}">
                         <i class="fas fa-angle-left"></i> 一覧へ戻る
                     </a>
                     {{Form::button('<i class="far fa-save"></i> 登録', ['class'=> config('adminlte.classes_auth_btn').' w_110','type'=>'submit'])}}

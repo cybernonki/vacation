@@ -13,8 +13,6 @@ class UpdateOrdererRequest extends FormRequest
     {
         return [
             'name' => ['required','max:200'],
-            'usecount' => ['required','numeric'],
-            'memo' => ['nullable','max:200'],
             'sort' => ['required','numeric'],
         ];
     }
@@ -23,8 +21,6 @@ class UpdateOrdererRequest extends FormRequest
     {
         return [
             'name' => '名前',
-            'usecount' => '休暇カウント',
-            'memo' => 'メモ',
             'sort' => 'ソート',
         ];
     }

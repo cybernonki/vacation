@@ -16,6 +16,11 @@
     "isEntry": true,
     "src": "resources/js/common.js"
   },
+  "resources/js/datepicker.js": {
+    "file": "assets/datepicker-jbIO8dCz.js",
+    "isEntry": true,
+    "src": "resources/js/datepicker.js"
+  },
   "resources/js/modules/utilization.js": {
     "file": "assets/utilization-TG7dpmm6.js",
     "isEntry": true,
