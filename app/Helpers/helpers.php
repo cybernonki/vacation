@@ -129,9 +129,9 @@ function ordererSelect($name, $param, $attr = []) {
  * 案件のselectボックス取得
  */
 function projectSelect($name, $param, $attr = []) {
-    $lists = Project::orderBy('sort', 'asc')->get();
+    $lists = Project::with(['Orderer'])->orderBy('sort', 'asc')->get();
 
-    $list = ['' => '']+Arr::pluck($lists, 'name', 'id');
+    $list = ['' => '']+Arr::pluck($lists, 'name_select', 'id');
 
     // オプションを指定する場合はこちらに配列で渡す
     $optionAttributes = [];

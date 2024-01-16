@@ -32,6 +32,12 @@ class Project extends Model
         return $this->hasOne(Orderer::class, 'id', 'orderer_id');
     }
 
+    // selectbox用
+    public function getNameSelectAttribute()
+    {
+        return "【" . optional($this->Orderer)->name . "】" . $this->name;
+    }
+
     public static function getList()
     {
         return self::with(['Orderer']);
