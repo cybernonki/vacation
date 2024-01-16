@@ -298,6 +298,33 @@ return [
             'url'  => 'employee/list',
             'icon' => 'fa fa-calendar',
         ],
+        ['header' => '時間管理'],
+        [
+            'text' => '発注元一覧',
+            'url'  => 'orderer/list',
+            'icon' => 'fa fa-building',
+        ],
+        [
+            'text' => '案件一覧',
+            'url'  => 'project/list',
+            'icon' => 'fa fa-sticky-note',
+        ],
+        [
+            'text' => '作業時間一覧',
+            'url'  => 'times/list',
+            'icon' => 'fa fa-hourglass',
+        ],
+        ['header' => '時間集計'],
+        [
+            'text' => '日別作業時間一覧',
+            'url'  => 'employee/list',
+            'icon' => 'fa fa-list',
+        ],
+        [
+            'text' => '月別作業時間一覧',
+            'url'  => 'employee/list',
+            'icon' => 'fa fa-list',
+        ],
     ],
 
     /*
