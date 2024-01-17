@@ -67,6 +67,10 @@ class Times extends Model
         $query->where('times_times.work_date', $value);
     }
 
+    public function scopeWorkDateMonth($query, $value) {
+        $query->whereRaw("DATE_FORMAT(times_times.work_date, '%Y/%m') = ?", [$value]);
+    }
+
     public function scopeEmployeeId($query, $value) {
         $query->where('times_times.employee_id', $value);
     }

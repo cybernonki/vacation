@@ -322,7 +322,7 @@ return [
         ],
         [
             'text' => '月別作業時間一覧',
-            'url'  => 'employee/list',
+            'url'  => 'month/list',
             'icon' => 'fa fa-list',
         ],
     ],

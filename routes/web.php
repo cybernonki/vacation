@@ -5,6 +5,7 @@ use App\Http\Controllers\OrdererController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TimesController;
 use App\Http\Controllers\DaysController;
+use App\Http\Controllers\MonthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,6 +67,13 @@ Route::controller(TimesController::class)->middleware(['auth'])->name('times.')-
 Route::controller(DaysController::class)->middleware(['auth'])->name('days.')->group(function () {
     Route::get('/days/list/{reload?}', 'list')->name('list');
     Route::get('/days/detail/{employee_id}/{date}', 'detail')->name('detail');
+});
+
+// 月別作業時間管理
+Route::controller(MonthController::class)->middleware(['auth'])->name('month.')->group(function () {
+    Route::get('/month/list/{reload?}', 'list')->name('list');
+    Route::get('/month/detail/{employee_id}/{month}', 'detail')->name('detail');
+    Route::get('/month/days/{employee_id}/{date}', 'days')->name('days');
 });
 
 require __DIR__.'/auth.php';
