@@ -63,6 +63,14 @@ class Times extends Model
         $query->where('times_times.id', $value);
     }
 
+    public function scopeWorkDate($query, $value) {
+        $query->where('times_times.work_date', $value);
+    }
+
+    public function scopeEmployeeId($query, $value) {
+        $query->where('times_times.employee_id', $value);
+    }
+
     public function scopeOrder($query, $order)
     {
         if (strlen($order['sort_column']) && strlen($order['sort_order'])) {

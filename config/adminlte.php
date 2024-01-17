@@ -317,7 +317,7 @@ return [
         ['header' => '時間集計'],
         [
             'text' => '日別作業時間一覧',
-            'url'  => 'employee/list',
+            'url'  => 'days/list',
             'icon' => 'fa fa-list',
         ],
         [

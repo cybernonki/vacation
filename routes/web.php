@@ -4,6 +4,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\OrdererController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TimesController;
+use App\Http\Controllers\DaysController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,12 @@ Route::controller(TimesController::class)->middleware(['auth'])->name('times.')-
     Route::post('/times', 'store')->name('store');
     Route::put('/times/{id}', 'update')->name('update');
     Route::delete('/times/{id}', 'delete')->name('delete');
+});
+
+// 日別作業時間管理
+Route::controller(DaysController::class)->middleware(['auth'])->name('days.')->group(function () {
+    Route::get('/days/list/{reload?}', 'list')->name('list');
+    Route::get('/days/detail/{employee_id}/{date}', 'detail')->name('detail');
 });
 
 require __DIR__.'/auth.php';
