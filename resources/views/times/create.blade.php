@@ -28,11 +28,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>作業日付</label>
-                            {{Form::text('work_date', old('work_date', isset($times) ? $times->work_date->format('Y/m/d') : null), ['class' => errClass('work_date').' form-control date', 'autocomplete' => 'off', 'id' => 'work_date'])}}
+                            {{Form::text('work_date', old('work_date', isset($times) ? $times->work_date->format('Y/m/d') : date('Y/m/d')), ['class' => errClass('work_date').' form-control date', 'autocomplete' => 'off', 'id' => 'work_date'])}}
                         </div>
                         <div class="form-group">
                             <label>作業時間</label>
-                            {{Form::number('work_time', old('work_time', isset($times) ? $times->work_time : null), ['class' => errClass('work_time').' form-control', 'autocomplete' => 'off', 'size' => '4', 'maxlength' => '4'])}}
+                            {{Form::number('work_time', old('work_time', isset($times) ? $times->work_time : null), ['class' => errClass('work_time').' form-control', 'autocomplete' => 'off', 'size' => '4', 'maxlength' => '4', 'step' => '0.01'])}}
                         </div>
                     </div>
                 </div>

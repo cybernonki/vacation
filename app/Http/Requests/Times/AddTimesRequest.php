@@ -11,20 +11,20 @@ class AddTimesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','max:200'],
-            'usecount' => ['required','numeric'],
-            'memo' => ['nullable','max:200'],
-            'sort' => ['required','numeric'],
+            'project_id' => ['required'],
+            'employee_id' => ['required'],
+            'work_date' => ['required','date_format:Y/m/d'],
+            'work_time' => ['required','numeric'],
         ];
     }
 
     public function attributes($params = [])
     {
         return [
-            'name' => '名前',
-            'usecount' => '休暇カウント',
-            'memo' => 'メモ',
-            'sort' => 'ソート',
+            'project_id' => '案件',
+            'employee_id' => '社員',
+            'work_date' => '作業日付',
+            'work_time' => '作業時間',
         ];
     }
 

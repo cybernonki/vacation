@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group">
                             <label>作業時間</label>
-                            {{Form::number('work_time', old('work_time', isset($times) ? $times->work_time : null), ['class' => errClass('work_time').' form-control', 'autocomplete' => 'off', 'size' => '4', 'maxlength' => '4'])}}
+                            {{Form::number('work_time', old('work_time', isset($times) ? $times->work_time : null), ['class' => errClass('work_time').' form-control', 'autocomplete' => 'off', 'size' => '4', 'maxlength' => '4', 'step' => '0.01'])}}
                         </div>
                     </div>
                 </div>
