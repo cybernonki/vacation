@@ -73,7 +73,7 @@ class User extends Authenticatable
             $scope = 'Order' . Str::studly($order['sort_column']);
             $query->$scope($order['sort_order']);
         } else {
-            $query->OrderSort('asc');
+            $query->OrderId('asc');
         }
     }
 

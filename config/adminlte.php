@@ -298,6 +298,11 @@ return [
             'url'  => 'employee/list',
             'icon' => 'fa fa-calendar',
         ],
+        [
+            'text' => 'ユーザー一覧',
+            'url'  => 'user/list',
+            'icon' => 'fa fa-user',
+        ],
         ['header' => '時間管理'],
         [
             'text' => '発注元一覧',

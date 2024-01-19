@@ -33,7 +33,7 @@ class UserController extends Controller
             $msg = session('flash_message');
             if ($msg) \Session::flash('flash_message', $msg);
             // 復元したリクエストを付けてリダイレクト
-            return redirect()->route('employee.list',$param);
+            return redirect()->route('user.list',$param);
         }
 
         $search = $param['search'] ?? [];
@@ -41,9 +41,9 @@ class UserController extends Controller
         $order['sort_order'] = $param['sort_order'] ?? '';
 
 
-        $lists = Employee::getList()->search($search)->order($order)->paginate(Config::get('const.PAGINATE_PAGES'));
+        $lists = User::getList()->search($search)->order($order)->paginate(Config::get('const.PAGINATE_PAGES'));
 
-        return view('employee.list', compact('lists', 'param'));
+        return view('user.list', compact('lists', 'param'));
     }
 
     /**
@@ -55,8 +55,8 @@ class UserController extends Controller
     public function delete(Request $request, $id)
     {
         // 削除処理
-        (new Employee)->setDestroy($id);
+        (new User)->setDestroy($id);
         \Session::flash('flash_message', config('const.MESSAGES.DELETED'));
-        return redirect()->route('employee.list', ['reload' => config('const.RELOAD_ON')]);
+        return redirect()->route('user.list', ['reload' => config('const.RELOAD_ON')]);
     }
 }
