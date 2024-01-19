@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrdererController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TimesController;
@@ -31,6 +32,12 @@ Route::controller(EmployeeController::class)->middleware(['auth'])->name('employ
     Route::post('/employee', 'store')->name('store');
     Route::put('/employee/{id}', 'update')->name('update');
     Route::delete('/employee/{id}', 'delete')->name('delete');
+});
+
+// ユーザー一覧
+Route::controller(UserController::class)->middleware(['auth'])->name('user.')->group(function () {
+    Route::get('/user/list/{reload?}', 'list')->name('list');
+    Route::delete('/user/{id}', 'delete')->name('delete');
 });
 
 // 発注元管理
