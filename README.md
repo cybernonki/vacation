@@ -1,5 +1,6 @@
 sudo -i
 
+ソースのディレクトリ移動
 docker compose build
 
 docker compose run laravel composer install

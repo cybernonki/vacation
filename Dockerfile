@@ -46,6 +46,13 @@ RUN a2enmod rewrite
 RUN curl -sS https://getcomposer.org/installer | php \
   && mv composer.phar /usr/local/bin/composer
 
+# node
+RUN apt install -y nodejs npm
+RUN npm install n -g
+RUN n stable
+RUN apt purge -y nodejs npm
+RUN npm update -g npm
+
 WORKDIR /var/www/html
 
 SHELL [ "/bin/bash", "-c" ]
