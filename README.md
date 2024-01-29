@@ -16,9 +16,13 @@ docker compose run laravel npm run build
 
 docker compose up -d
 
+
 sudo chmod -R 777 /vacation
+
 git checkout .
+
 ※not root user
+
 
 以下でアクセス
 
