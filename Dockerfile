@@ -48,7 +48,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 # node
 RUN apt install -y nodejs npm
-RUN npm install -n -g
+RUN npm install n -g
 RUN n stable
 RUN apt purge -y nodejs npm
 RUN npm update -g npm
